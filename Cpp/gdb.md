@@ -117,7 +117,9 @@
 
   ![image-20211213233506527](pics/gdb_4.png)
 
-  <img src="image-20211213233613450.png" alt="image-20211213233613450"  />
+  ![gdb_5](pics/gdb_5.jpg)
+
+![gdb_6](pics/gdb_6.png)
 
 ​		gdb堆栈信息完整的保证：**编译带-g参数** && **so不能striped**
 
