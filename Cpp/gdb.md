@@ -29,14 +29,21 @@
   2. 自定义corefile保存位置 && 名字格式
 
      ```bash
+     # 临时修改，/proc目录是动态加载的，每次重启电脑都会重新加载
+     # 注意 这里的路径 要已经存在才能生成coredump
+     mkdir corefile
      echo "/corefile/core_%t_%p" > /proc/sys/kernel/core_pattern
      # %e: 导致core的命令名
      # %t: core的unix时间
      # %p: core的pid
      ```
-
+  
   > 完成上述步骤，就可以生成corefile了
-
+  >
+  > 如果没有生成：
+  >
+  > 1. core_pattern && core_uses_pid 文件有没有设置
+  > 2. 执行的进程有没有写的权限？ sudo ./run
   
 
 ### 基本命令
@@ -44,7 +51,7 @@
 - 加载gdb
 
   ```bash
-  # 加载core文件
+  # 加载core文件，注意权限，是否需要加sudo
   gdb [exefile] [corefile]
   ```
 

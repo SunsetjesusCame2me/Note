@@ -126,3 +126,23 @@ RestAPI是一种 **设计理念**：
 >
 > ​					   nginx提供了accept锁，实现当前只有一个进程可以**accept**这个**socket**
 
+
+
+## promethus监控
+
+![image-20211220230554865](pics/promethus_1.jpg)
+
+> 1. 类比mysql
+>
+>    Table = http_request 
+>
+>    | main_key  | method(post) | handler(/delete) |
+>    | --------- | ------------ | ---------------- |
+>    | timestamp | 100          | 100              |
+>
+> 2. 存入时许数据库，维度为time
+>
+> 3. 通过http从暴露的接口获取数据：
+>
+>    - pushgateway：临时job主动push
+>    - job、instance：promethus主动pull数据
